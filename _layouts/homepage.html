@@ -342,14 +342,11 @@
         header {
           background: #fff;
           left: 15px;
-          max-height: 70vh;
-          max-height: 70dvh;
-          overflow-y: auto;
+          overflow: visible;
           position: fixed;
           right: 15px;
           top: 15px;
           z-index: 1;
-          -webkit-overflow-scrolling: touch;
         }
 
         .page-content {
@@ -364,12 +361,19 @@
           top: calc(var(--site-header-height, 0px) + 25px);
           -webkit-overflow-scrolling: touch;
         }
+
+        .tag-cloud {
+          max-height: 32vh;
+          max-height: 32dvh;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
       }
 
       @media screen and (max-width: 480px) {
-        header {
-          max-height: 68vh;
-          max-height: 68dvh;
+        .tag-cloud {
+          max-height: 30vh;
+          max-height: 30dvh;
         }
       }
     </style>
