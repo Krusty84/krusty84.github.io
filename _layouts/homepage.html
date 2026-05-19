@@ -225,7 +225,7 @@
         
       </footer>
     </div>
-    <button type="button" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <button type="button" class="back-to-top" aria-label="Back to top" hidden><i class="fa-solid fa-chevron-up"></i></button>
     <style>
       h1 .about-link {
         color: inherit;
@@ -309,6 +309,10 @@
       .back-to-top:focus {
         background: #e8e8e8;
         color: #333;
+      }
+
+      .back-to-top[hidden] {
+        display: none;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -407,7 +411,7 @@
           padding-right: 0;
         }
 
-        .back-to-top {
+        .back-to-top:not([hidden]) {
           display: block;
         }
       }
@@ -459,6 +463,7 @@
         const pageContent = document.querySelector('.page-content');
         if (!pageContent) return;
         pageContent.scrollIntoView({ block: 'start', behavior: 'auto' });
+        window.updateBackToTop?.();
       };
 
       document.addEventListener('DOMContentLoaded', () => {
@@ -479,10 +484,25 @@
           new ResizeObserver(updateHeaderHeight).observe(siteHeader);
         }
 
+        window.updateBackToTop = function() {
+          if (!backToTop) return;
+          const isMobile = window.matchMedia('(max-width: 960px)').matches;
+          const pageHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+          );
+          const isAtBottom = window.scrollY + window.innerHeight >= pageHeight - 8;
+          backToTop.hidden = !isMobile || !isAtBottom;
+        };
+
         if (backToTop) {
           backToTop.addEventListener('click', () => {
+            backToTop.hidden = true;
             window.scrollTo({ top: 0, behavior: 'smooth' });
           });
+          window.updateBackToTop();
+          window.addEventListener('scroll', window.updateBackToTop, { passive: true });
+          window.addEventListener('resize', window.updateBackToTop);
         }
 
         function loadPageIntoContent(url) {
