@@ -63,9 +63,11 @@ layout: homepage
         } else {
           contentArea.innerHTML = temp.innerHTML;
         }
+        window.revealPageContent?.();
       })
       .catch(() => {
         contentArea.innerHTML = '<h2>Unable to load About</h2>';
+        window.revealPageContent?.();
       });
   }
 
@@ -158,6 +160,7 @@ layout: homepage
       aboutLink.addEventListener('click', e => {
         e.preventDefault();
         showAbout();
+        window.revealPageContent?.();
       });
     });
 
@@ -182,6 +185,7 @@ layout: homepage
         currentTag = link.dataset.tag;
         currentPage = 1;
         renderCurrentPosts();
+        window.revealPageContent?.();
       });
     });
 
@@ -192,10 +196,14 @@ layout: homepage
 
       currentPage = parseInt(control.dataset.page);
       renderCurrentPosts();
+      window.revealPageContent?.();
     });
 
     // Initial render
     renderCurrentPosts();
+    if (requestedTag) {
+      window.revealPageContent?.();
+    }
   });
 </script>
 
