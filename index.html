@@ -124,7 +124,7 @@ layout: homepage
 
       div.innerHTML = `
         <h2 class="post-title">${renderStatusIcon(post.status)}${post.title}</h2>
-        <small>${post.date} &nbsp; ${post.tags.map(t => `<span class="tag">#${t}</span>`).join(' ')}</small>
+        <small>${post.date} &nbsp; ${post.tags.map(t => `<button type="button" class="tag post-tag ${currentTag === t ? 'active' : ''}" data-tag="${t}" aria-pressed="${currentTag === t}">#${t}</button>`).join(' ')}</small>
         <p>${post.excerpt}</p>
         ${postLinks ? `<div class="post-links">${postLinks}</div>` : ''}
       `;
@@ -166,6 +166,19 @@ layout: homepage
 
     const tagCloudToggle = document.querySelector('.tag-cloud-toggle');
     const tagCloudExtra = document.querySelector('.tag-cloud-extra');
+
+    function syncSidebarTagSelection(selectedTag) {
+      document.querySelectorAll('.tag-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.tag === selectedTag);
+      });
+
+      const activeExtraTag = tagCloudExtra?.querySelector(`.tag-link.active`);
+      if (activeExtraTag && tagCloudToggle && tagCloudExtra.hidden) {
+        tagCloudToggle.setAttribute('aria-expanded', 'true');
+        tagCloudExtra.hidden = false;
+      }
+    }
+
     if (tagCloudToggle && tagCloudExtra) {
       tagCloudToggle.addEventListener('click', () => {
         const isOpen = tagCloudToggle.getAttribute('aria-expanded') === 'true';
@@ -176,21 +189,30 @@ layout: homepage
 
     // Click by tags
     document.querySelectorAll('.tag-link').forEach(link => {
-      link.classList.toggle('active', link.dataset.tag === currentTag);
       link.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelectorAll('.tag-link').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
 
         currentTag = link.dataset.tag;
         currentPage = 1;
+        syncSidebarTagSelection(currentTag);
         renderCurrentPosts();
         window.revealPageContent?.();
       });
     });
+    syncSidebarTagSelection(currentTag);
 
     // Click by pagination
     document.getElementById('content-area').addEventListener('click', e => {
+      const postTag = e.target.closest('.post-tag');
+      if (postTag) {
+        currentTag = postTag.dataset.tag;
+        currentPage = 1;
+        syncSidebarTagSelection(currentTag);
+        renderCurrentPosts();
+        window.revealPageContent?.();
+        return;
+      }
+
       const control = e.target.closest('.page-link, .pagination-arrow');
       if (!control || control.disabled) return;
 
@@ -240,10 +262,26 @@ layout: homepage
   }
   .tag {
     background: #f0f0f0;
+    border: 1px solid transparent;
+    cursor: default;
     color: #000;
+    font: inherit;
+    line-height: 1.5;
+    margin: 0;
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.9rem;
+  }
+  .post-tag {
+    cursor: pointer;
+  }
+  .post-tag:hover {
+    background: #ececec;
+  }
+  .tag.active {
+    background: #fff;
+    border-color: #111;
+    color: #111;
   }
   .post-links {
     display: flex;
@@ -307,14 +345,19 @@ layout: homepage
     margin: 4px 6px 4px 0;
     padding: 5px 12px;
     background: #f4f4f4;
+    border: 1px solid transparent;
     border-radius: 9999px;
     text-decoration: none;
     color: #333;
   }
-  .tag-cloud a:hover,
   .tag-cloud a.active {
-    background: #0066cc;
-    color: white;
+    background: #fff;
+    border-color: #111;
+    color: #111;
+  }
+  .tag-cloud a:hover {
+    background: #ececec;
+    color: #333;
   }
   .tag-cloud-toggle {
     display: inline-block;
@@ -329,8 +372,8 @@ layout: homepage
   }
   .tag-cloud-toggle:hover,
   .tag-cloud-toggle[aria-expanded="true"] {
-    background: #0066cc;
-    color: white;
+    background: #ececec;
+    color: #111;
   }
   .tag-cloud-extra {
     max-height: 170px;
@@ -360,6 +403,14 @@ layout: homepage
       background: #333;
       color: #ddd;
     }
+    .post-tag:hover {
+      background: #444;
+    }
+    .tag.active {
+      background: #20212b;
+      border-color: #ddd;
+      color: #fff;
+    }
     .tag-cloud {
       border-color: #c00;
     }
@@ -371,11 +422,15 @@ layout: homepage
       background: #333;
       color: #ddd;
     }
+    .tag-cloud a.active {
+      background: #20212b;
+      border-color: #ddd;
+      color: #fff;
+    }
     .tag-cloud a:hover,
-    .tag-cloud a.active,
     .tag-cloud-toggle:hover,
     .tag-cloud-toggle[aria-expanded="true"] {
-      background: #39c;
+      background: #444;
     }
   }
 

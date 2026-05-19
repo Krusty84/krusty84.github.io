@@ -253,15 +253,21 @@
         margin: 4px 6px 4px 0;
         padding: 5px 12px;
         background: #f4f4f4;
+        border: 1px solid transparent;
         border-radius: 9999px;
         text-decoration: none;
         color: #333;
       }
 
-      .tag-cloud a:hover,
       .tag-cloud a.active {
-        background: #0066cc;
-        color: white;
+        background: #fff;
+        border-color: #111;
+        color: #111;
+      }
+
+      .tag-cloud a:hover {
+        background: #ececec;
+        color: #333;
       }
 
       .tag-cloud-toggle {
@@ -278,8 +284,8 @@
 
       .tag-cloud-toggle:hover,
       .tag-cloud-toggle[aria-expanded="true"] {
-        background: #0066cc;
-        color: white;
+        background: #ececec;
+        color: #111;
       }
 
       .tag-cloud-extra {
@@ -326,11 +332,16 @@
           color: #ddd;
         }
 
+        .tag-cloud a.active {
+          background: #20212b;
+          border-color: #ddd;
+          color: #fff;
+        }
+
         .tag-cloud a:hover,
-        .tag-cloud a.active,
         .tag-cloud-toggle:hover,
         .tag-cloud-toggle[aria-expanded="true"] {
-          background: #39c;
+          background: #444;
         }
 
         .back-to-top {
