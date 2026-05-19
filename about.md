@@ -147,7 +147,7 @@ permalink: /about.html
 </p>
 
 <h2>Contacts</h2> 
-<p> 📧 <a href="{{ site.email }}">Email me</a>
+<p> 📧 <a href="{{ site.email_href }}">Email me</a>
 <br> 🔗 <a href="{{ site.linkedin }}">More official details in LinkedIn</a> 
 </p>
 

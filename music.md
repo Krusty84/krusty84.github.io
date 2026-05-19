@@ -84,6 +84,18 @@ regular_apple_music: https://music.apple.com/us/playlist/my-favorite-songs/pl.u-
   @media (prefers-color-scheme: dark) {
     .music-page .post-item {
       border-color: #444;
+      color: #dadbdf;
+    }
+
+    .music-page .post-item small,
+    .music-page .post-item p,
+    .music-page .post-item a {
+      color: #dadbdf;
+    }
+
+    .music-page .tag {
+      background: #333;
+      color: #ddd;
     }
   }
 </style>

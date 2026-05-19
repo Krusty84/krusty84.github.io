@@ -262,14 +262,16 @@ layout: homepage
     cursor: pointer;
     font: inherit;
     line-height: 1;
-    padding: 7px 9px;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 12px;
   }
   .page-link.active {
     border-color: #000;
   }
   .pagination-arrow {
     font-size: 1.25rem;
-    padding: 5px 9px;
+    padding: 8px 12px;
   }
   .pagination-arrow:disabled {
     cursor: default;
@@ -331,6 +333,24 @@ layout: homepage
   @media (prefers-color-scheme: dark) {
     .post-item {
       border-color: #444;
+      color: #dadbdf;
+    }
+    .post-status,
+    .post-item a,
+    .post-item small,
+    .post-item p,
+    #pagination,
+    .pagination-empty,
+    .page-link,
+    .pagination-arrow {
+      color: #dadbdf;
+    }
+    .page-link.active {
+      border-color: #dadbdf;
+    }
+    .tag {
+      background: #333;
+      color: #ddd;
     }
     .tag-cloud {
       border-color: #c00;

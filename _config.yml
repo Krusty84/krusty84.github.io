@@ -20,7 +20,7 @@ nuget: https://www.nuget.org/profiles/Krusty84
 medium: https://medium.com/@Krusty84
 qrz: https://qrz.com/db/UB3ARM
 music: /music.html
-e-mail: "mailto:sedoykin@gmail.com"
+email_href: "mailto:sedoykin@gmail.com"
 
 # Images (e.g., your profile picture and your website's favicon)
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively.
