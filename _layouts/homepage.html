@@ -210,7 +210,7 @@
         {% endif %}
 
       </header>
-      <section style="margin-left: 340px;">
+      <section class="page-content">
 
       {{ content }}
 
@@ -232,6 +232,10 @@
 
       h1 .about-link:hover {
         color: inherit;
+      }
+
+      .page-content {
+        margin-left: 340px;
       }
 
       .tag-cloud {
@@ -303,10 +307,51 @@
       }
 
       @media print, screen and (max-width: 960px) {
+        .page-content {
+          box-sizing: border-box;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 650px;
+          width: 100%;
+        }
+
         .tag-cloud {
           width: auto;
           margin-left: 0;
           transform: none;
+        }
+      }
+
+      @media screen and (max-width: 960px) {
+        html,
+        body {
+          height: 100%;
+          overflow: hidden;
+        }
+
+        body {
+          box-sizing: border-box;
+        }
+
+        div.wrapper {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          overflow: hidden;
+        }
+
+        header {
+          background: #fff;
+          flex: 0 0 auto;
+          position: relative;
+          z-index: 1;
+        }
+
+        .page-content {
+          flex: 1 1 auto;
+          min-height: 0;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
         }
       }
     </style>
