@@ -5,9 +5,10 @@ title: Alexey Sedoykin
 
 # Search Engine Optimization (SEO)
 # The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: plm pdm siemens teamcenter dassault ptc unigraphics aras nx enovia 3dexperience cad cae catia azure yandex ai engineering software
-description: The Minimal Light is a simple and elegant jekyll theme for academic personal homepage.
-canonical: https://minimal-light-theme.yliu.me/
+keywords: apple macos ios ipados plm pdm siemens teamcenter zabbix obsdidan vscode visual-studio dassault ptc unigraphics aras nx enovia 3dexperience cad cae catia azure yandex cloud nuget alice ai engineering software nodejs csharp python swift swiftui js ts
+description: Alexey Sedoykin’s personal website about Siemens software,  engineering software, PLM, PDM, Teamcenter, Apple apps, developer tools, and various projects.
+url: https://www.sedoykin.com
+canonical: https://www.sedoykin.com/
 
 # Links
 # If you don't need one of them, you may delete the corresponding line.
@@ -25,6 +26,7 @@ email_href: "mailto:sedoykin@gmail.com"
 # Images (e.g., your profile picture and your website's favicon)
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively.
 avatar: ./assets/img/avatar.png
+social_image: /assets/img/avatar.png
 favicon: ./assets/img/favicon.png
 favicon_dark: ./assets/img/favicon-dark.png
 
