@@ -235,6 +235,19 @@ layout: homepage
     padding-bottom: 2rem;
     border-bottom: 1px solid #eee;
     color: #000;
+    position: relative;
+  }
+  .post-item::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 1.5rem;
+    width: 24px;
+    height: 14px;
+    border-right: 1px solid #c00;
+    border-bottom: 1px solid #c00;
+    border-radius: 0 0 1px 0;
+    pointer-events: none;
   }
   .post-item h2 {
     margin: 0 0 8px 0;
@@ -435,6 +448,11 @@ layout: homepage
   }
 
   @media print, screen and (max-width: 960px) {
+    .post-item::after {
+      bottom: 2.75rem;
+      height: 48px;
+      width: 56px;
+    }
     .tag-cloud {
       width: auto;
       margin-left: 0;
