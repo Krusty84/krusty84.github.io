@@ -9,7 +9,7 @@ permalink: /about.html
 <h1>About Me</h1>
 
 <p>
-  Hi, this is Alexey Sedoykin, a binary personality:
+  Hi, this is Alexey Sedoykin (Алексей Седойкин), a binary personality:
   a man, an engineer, a husband, and a father.
 </p>
 
