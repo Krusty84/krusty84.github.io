@@ -1,0 +1,45 @@
+---
+layout: null
+permalink: /about.md
+---
+# About Alexey Sedoykin
+
+Alexey Sedoykin (Алексей Седойкин) is an engineer and software developer with a background in industrial automation, PLM, PDM, Teamcenter, NX, engineering software, Apple apps, and developer tools.
+
+## Professional Journey
+
+Alexey started working with industrial automation while studying at university. After graduation, he helped implement Teamcenter and Unigraphics (NX) into the educational process, including remote access workflows and analysis of real NX license usage.
+
+## Siemens Digital Industries Software, 2011-2022
+
+Alexey started as a Teamcenter trainer and later spent 10 years as a Local Product Manager for Teamcenter and related PLM solutions. His work included sales support, implementation projects, technical consulting, solving complex customer problems, and collecting requirements for global development teams.
+
+## Huawei, Since 2022
+
+Alexey worked as a Team Lead, Solution Architect, and Software Architect on engineering software initiatives, including a Digital Thread orchestration platform based on a graph database. He is now focused on software infrastructure around hardware accelerators.
+
+## Projects And Community Contributions
+
+Alexey creates tools for engineers, CAD/PLM administrators, developers, and general users.
+
+- App Store: {{ site.apple }}
+- Obsidian community profile: https://publish.obsidian.md/hub/01+-+Community/People/Krusty84
+- Visual Studio Marketplace: {{ site.msvsstore }}
+- NuGet: {{ site.nuget }}
+- Swift Package Index: {{ site.swiftindex }}
+- GitHub: {{ site.github_link }}
+- LinkedIn: {{ site.linkedin }}
+
+Alexey is also a co-author of an educational textbook about NX and Teamcenter, a co-author of one patent, and the creator of a collection of tips, tricks, and open-source projects.
+
+## Hobbies
+
+Alexey is interested in amateur shortwave radio and uses the callsign UB3ARM.
+
+- QRZ: {{ site.qrz }}
+- HAMBoard on the App Store: https://apps.apple.com/us/app/hamboard/id6760978736
+
+## Contacts
+
+- Email: {{ site.email_href }}
+- LinkedIn: {{ site.linkedin }}

@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description }}
+
+## Core Pages
+
+- [Home]({{ '/' | absolute_url }}): Personal project index for Alexey Sedoykin.
+- [Home Markdown]({{ '/index.md' | absolute_url }}): Clean Markdown version of the project index.
+- [About]({{ '/about.html' | absolute_url }}): Professional background, projects, community contributions, hobbies, and contacts.
+- [About Markdown]({{ '/about.md' | absolute_url }}): Clean Markdown version of the About page.
+- [Music]({{ '/music.html' | absolute_url }}): Shared music playlists.
+- [Music Markdown]({{ '/music.md' | absolute_url }}): Clean Markdown version of the music page.
+- [Full LLM Context]({{ '/llms-full.txt' | absolute_url }}): Full site summary and project text for AI agents.
+
+## Project Index
+
+{% for post in site.posts -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.excerpt | strip_html | normalize_whitespace }}{% if post.repo %} Repository: {{ post.repo }}.{% endif %}
+{% endfor %}

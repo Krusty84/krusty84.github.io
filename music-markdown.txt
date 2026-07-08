@@ -1,0 +1,19 @@
+---
+layout: null
+permalink: /music.md
+---
+# Music
+
+## Electronic Music
+
+More than 900 tracks, about 3 days of non-stop music.
+
+- Playlist export: {{ '/assets/files/music_electro_playlist.txt' | absolute_url }}
+- Apple Music playlist: https://music.apple.com/us/playlist/my-electronic-music/pl.u-DdAN8lPI0ZbDBeo
+
+## Musical Jam
+
+More than 3000 tracks, about 9 days of non-stop music, from Serge Gainsbourg to NOFX.
+
+- Playlist export: {{ '/assets/files/music_general_playlist.txt' | absolute_url }}
+- Apple Music playlist: https://music.apple.com/us/playlist/my-favorite-songs/pl.u-76oNl2Mtv0ro82l

@@ -1,0 +1,52 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+# {{ site.title }}
+
+{{ site.description }}
+
+Canonical site: {{ site.url }}
+
+## About
+
+Alexey Sedoykin is an engineer and software developer focused on PLM, PDM, Teamcenter, engineering software, Apple apps, developer tools, AI, and related automation.
+
+He worked with industrial automation, Teamcenter, and Unigraphics/NX, then spent 2011-2022 at Siemens Digital Industries Software as a Teamcenter trainer and Local Product Manager for Teamcenter and related PLM solutions. Since 2022 he has worked at Huawei, including Team Lead, Solution Architect, and Software Architect responsibilities around engineering software and digital thread orchestration.
+
+His projects and community contributions are available through the App Store, Obsidian community extensions, Visual Studio Marketplace, NuGet, Swift Package Index, GitHub, LinkedIn, and related developer channels.
+
+Primary links:
+
+- Website: {{ site.url }}
+- GitHub: {{ site.github_link }}
+- LinkedIn: {{ site.linkedin }}
+- Apple developer page: {{ site.apple }}
+- Visual Studio Marketplace: {{ site.msvsstore }}
+- NuGet: {{ site.nuget }}
+- Swift Package Index: {{ site.swiftindex }}
+- Medium: {{ site.medium }}
+- QRZ: {{ site.qrz }}
+
+## Music
+
+- Electronic Music playlist: {{ page.electronic_apple_music | default: "https://music.apple.com/us/playlist/my-electronic-music/pl.u-DdAN8lPI0ZbDBeo" }}
+- Favorite Songs playlist: {{ page.regular_apple_music | default: "https://music.apple.com/us/playlist/my-favorite-songs/pl.u-76oNl2Mtv0ro82l" }}
+- Electronic playlist export: {{ '/assets/files/music_electro_playlist.txt' | absolute_url }}
+- General playlist export: {{ '/assets/files/music_general_playlist.txt' | absolute_url }}
+
+## Projects And Posts
+
+{% for post in site.posts -%}
+### {{ post.title }}
+
+- Date: {{ post.date | date: "%Y-%m-%d" }}
+- Status: {{ post.status | default: "unspecified" }}
+- Tags: {{ post.tags | join: ", " }}
+{% if post.repo -%}
+- Repository: {{ post.repo }}
+{% endif %}
+
+{{ post.content | strip_html | normalize_whitespace }}
+
+{% endfor %}

@@ -1,0 +1,43 @@
+---
+layout: null
+permalink: /index.md
+---
+# {{ site.title }}
+
+{{ site.description }}
+
+Canonical URL: {{ site.url }}
+
+## Main Pages
+
+- [About]({{ '/about.html' | absolute_url }})
+- [Music]({{ '/music.html' | absolute_url }})
+- [LLM guide]({{ '/llms.txt' | absolute_url }})
+- [Full LLM context]({{ '/llms-full.txt' | absolute_url }})
+
+## Links
+
+- GitHub: {{ site.github_link }}
+- LinkedIn: {{ site.linkedin }}
+- Apple developer page: {{ site.apple }}
+- Visual Studio Marketplace: {{ site.msvsstore }}
+- NuGet: {{ site.nuget }}
+- Swift Package Index: {{ site.swiftindex }}
+- Medium: {{ site.medium }}
+- QRZ: {{ site.qrz }}
+
+## Projects
+
+{% for post in site.posts -%}
+### {{ post.title }}
+
+- Date: {{ post.date | date: "%Y-%m-%d" }}
+- Status: {{ post.status | default: "unspecified" }}
+- Tags: {{ post.tags | join: ", " }}
+{% if post.repo -%}
+- Repository: {{ post.repo }}
+{% endif %}
+
+{{ post.content | strip_html | normalize_whitespace }}
+
+{% endfor %}
