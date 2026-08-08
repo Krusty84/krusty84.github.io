@@ -1,7 +1,7 @@
 ---
 title: "SKILL.md Inspector"
 date: 2026-07-26 21:38:00 +0200
-tags: [skill.md, agent, ai, vscode, extension, plugin, nodejs, markdown]
+tags: [skill-md, agent, ai, llm, vscode, extension, plugin, nodejs, markdown]
 repo: "https://github.com/Krusty84/SKILL.md-Inspector"
 status: "done"
 ---
